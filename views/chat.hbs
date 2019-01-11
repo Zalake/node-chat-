@@ -3,7 +3,7 @@
 
 <input type="text" name="message" id="msg" style="border: hidden;"><button onclick="sendData()" >send</button>
 <script type="text/javascript">
-	var socket = io('http://localhost:3000',{transports: ['websocket'], upgrade: false});
+	var socket = io('http://172.30.90.69:3000',{transports: ['websocket'], upgrade: false});
 	var message;
 	function sendData() {
    	message=document.getElementById('msg').value;

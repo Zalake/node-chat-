@@ -11,6 +11,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var chatRouter = require('./routes/chat');
 var loginRouter = require('./routes/login');
+var registerRouter = require('./routes/register');
+var initializeRouter = require('./routes/initialize');
 var app = express();
 var port = process.env.PORT||3000;
 var server = require('http').Server(app).listen(port,function(err,success){
@@ -27,6 +29,7 @@ io.on('connection', function(socket){
       socket.on('chatData',function(data){
         console.log(data);
 
+        socket.broadcast.emit('mssg',data);
         socket.emit('mssg',data);
       });
 });
@@ -53,6 +56,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/chat', chatRouter);
 app.use('/login', loginRouter);
+app.use('/register', registerRouter);
+app.use('/initialize', initializeRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
