@@ -1,7 +1,7 @@
 body {
     padding-top: 10px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url('../images/texture1.jpg');
+  background-color: red;
   background-size: cover;
 }
 .panel-body{
@@ -103,4 +103,21 @@ body {
 	color: #fff;
 	background-color: #1CA347;
 	border-color: #1CA347;
+}
+
+
+.chat{
+
+	width:30%;
+	color:#000;
+	background-color: #fff;
+	position: relative;
+
+}	
+
+.chat::before{
+	content: "";
+	background-color: red;
+	position: absolute;
+	transform: skewX(90deg);
 }

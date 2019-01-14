@@ -19,7 +19,8 @@ router.post('/', function(req,response,next){
 				}
 				else if(res.rows[0][0]==req.body.username&&res.rows[0][2]==req.body.password){
 					req.session.loggedIn=true;
-					response.redirect('chat');
+					req.session.username=req.body.username;
+					response.render('chat',{'username':req.session.username});
 				}
 				else{
 					response.render('index',{'msg':"invalid username or password"});
